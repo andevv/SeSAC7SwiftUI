@@ -15,13 +15,40 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        Button("타입 확인") {
-            let value = type(of: self.body)
-            print(value)
+/// 프로퍼티가 var여도 내부 프로퍼티 변경 불가능
+/// mutating
+/// 연산 프로퍼티에서 get은 nonmutating이지만, mutating get으로 수정하면 내부 프로퍼티 변경 가능
+struct User {
+    var nickname = "고래밥"
+    
+    var introduce: String {
+        mutating get {
+            nickname = "칙촉"
+            return "안녕하세요 저는 \(nickname)입니다."
         }
-        .foregroundStyle(.red)
+    }
+    
+    func changeNickname() {
+        print("안녕하세요 저는 \(nickname)입니다.")
+    }
+}
+
+/// 구조체에서 값 변경은 불가능, mutating get으로 값 변경 가능
+/// 하지만 SwiftUI View 프로토콜은 nonmutating get 특성을 가진 body로 이루어져 있음
+/// -> SwiftUI Data Flow -> Swift PropertyWrapper(Swift 5.1)
+/// @State, @Binding, @StateObject
+struct ContentView: View {
+    
+    var nickname = "고래밥"
+    
+    var body: some View {
+//        get {
+//            Text(nickname)
+//            Button("닉네임 변경") {
+//                nickname = "칙촉"
+//                print("닉네임 변경 완료: \(nickname)")
+//            }
+//        }
     }
 }
 
