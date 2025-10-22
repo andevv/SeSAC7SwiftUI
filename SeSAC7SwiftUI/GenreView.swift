@@ -21,7 +21,7 @@ struct GenreModel: Hashable, Identifiable {
 
 struct GenreView: View {
     
-    let typeArray = ["영화", "드라마", "뮤지컬", "애니메이션", "전시회"]
+    @State var typeArray = ["영화", "드라마", "뮤지컬", "애니메이션", "전시회"]
     let genreList = [
         GenreModel(image: "star", title: "로맨스", count: 11),
         GenreModel(image: "star.fill", title: "스릴러", count: 22),
@@ -31,6 +31,9 @@ struct GenreView: View {
     
     var body: some View {
         VStack {
+            Button("카테고리 추가") {
+                typeArray.insert("Jack", at: 0)
+            }
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(typeArray, id: \.self) { item in
