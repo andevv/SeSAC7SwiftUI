@@ -24,10 +24,14 @@ struct RenderingView: View {
                 NavigationLink("다음 화면으로 넘어가기") {
                     Finn()
                 }
-                Text("Hue: \(age)")
-                    .font(.largeTitle)
-                    .padding()
-                    .background(Color.random())
+                NavigationLink {
+                    Finn()
+                } label: {
+                    Text("Hue: \(age)")
+                        .font(.largeTitle)
+                        .padding()
+                        .background(Color.random())
+                }
                 den
                 bran()
                 Finn()

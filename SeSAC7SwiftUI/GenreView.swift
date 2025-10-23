@@ -47,7 +47,12 @@ struct GenreView: View {
                     ScrollView(.vertical) {
                         VStack {
                             ForEach(genreList, id: \.id) { item in
-                                GenreCell(image: item.image, title: item.title, count: item.count)
+                                
+                                NavigationLink {
+                                    RenderingView()
+                                } label: {
+                                    GenreCell(image: item.image, title: item.title, count: item.count)
+                                }
                             }
                         }
                     }
