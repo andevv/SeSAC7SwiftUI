@@ -30,25 +30,30 @@ struct GenreView: View {
     ]
     
     var body: some View {
-        VStack {
-            Button("카테고리 추가") {
-                typeArray.insert("Jack", at: 0)
-            }
-            ScrollView(.horizontal) {
-                HStack {
-                    ForEach(typeArray, id: \.self) { item in
-                        TypeCell(title: item)
-                    }
-                }
-                .padding()
-            }
-            ScrollView(.vertical) {
+        NavigationView {
+            ScrollView {
                 VStack {
-                    ForEach(genreList, id: \.id) { item in
-                        GenreCell(image: item.image, title: item.title, count: item.count)
+                    Button("카테고리 추가") {
+                        typeArray.insert("Jack", at: 0)
+                    }
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(typeArray, id: \.self) { item in
+                                TypeCell(title: item)
+                            }
+                        }
+                        .padding()
+                    }
+                    ScrollView(.vertical) {
+                        VStack {
+                            ForEach(genreList, id: \.id) { item in
+                                GenreCell(image: item.image, title: item.title, count: item.count)
+                            }
+                        }
                     }
                 }
             }
+            .navigationTitle("제목")
         }
     }
 }
