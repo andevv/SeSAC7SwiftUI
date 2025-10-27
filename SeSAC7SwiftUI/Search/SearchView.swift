@@ -38,8 +38,8 @@ struct SearchView: View {
             List {
                 ForEach(filterList, id: \.id) { item in
                     
-                    NavigationLink {
-                        SearchDetailView(data: item)
+                    NavigationLink { // 하위뷰 Init
+                        LazyView(SearchDetailView(data: item))
                     } label: {
                         setupRows(item)
                     }

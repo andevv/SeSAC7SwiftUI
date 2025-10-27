@@ -18,7 +18,25 @@ struct SearchDetailView: View {
                 Text(data.name)
                 Text("(\(data.age)세)")
             }
+            NavigationLink("다음 화면 전환하기") {
+                SearchDetailDetailView()
+            }
         }
+    }
+    
+    init(data: Person) {
+        self.data = data
+        print("SearchDetailView Init \(data.name)")
+    }
+}
+
+private struct SearchDetailDetailView: View {
+    var body: some View {
+        Text("완전 상세 화면")
+    }
+    
+    init() {
+        print("SearchDetailDetailView Init")
     }
 }
 
