@@ -7,20 +7,38 @@
 
 import SwiftUI
 
+struct Person: Identifiable {
+    let id = UUID()
+    let name: String
+    let age: Int
+}
+
 struct SearchView: View {
     
     @State private var searchText = ""
     @State private var isPresentedTamagochiView = false
     @State private var isPresentedBasiciView = false
-
+    
+    let list = [
+        Person(name: "잭", age: 3),
+        Person(name: "잭잭", age: 4),
+        Person(name: "잭잭잭", age: 5),
+        Person(name: "잭잭잭잭", age: 6),
+        Person(name: "잭잭잭잭잭", age: 7),
+        Person(name: "잭잭잭잭잭잭", age: 8),
+        Person(name: "잭잭잭잭잭잭잭", age: 9)
+    ]
+    
+    var filterList: [Person] {
+        return searchText.isEmpty ? list : list.filter { $0.name.contains(searchText) }
+    }
     
     var body: some View {
         NavigationView {
             List {
-                Text("Hello, World!")
-                Text("Hello, World!")
-                Text("Hello, World!")
-                Text("Hello, World!")
+                ForEach(filterList, id: \.id) { item in
+                    setupRows(item)
+                }
             }
             .sheet(isPresented: $isPresentedTamagochiView, content: {
                 TamagochiView()
@@ -44,6 +62,17 @@ struct SearchView: View {
                         }
                 }
             }
+        }
+    }
+    
+    func setupRows(_ item: Person) -> some View {
+        HStack {
+            Image(systemName: "person.fill")
+            Text(item.name)
+                .bold()
+            Text("\(item.age)")
+                .font(.caption)
+                .foregroundStyle(.gray)
         }
     }
 }
