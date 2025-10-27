@@ -37,7 +37,12 @@ struct SearchView: View {
         NavigationView {
             List {
                 ForEach(filterList, id: \.id) { item in
-                    setupRows(item)
+                    
+                    NavigationLink {
+                        SearchDetailView(data: item)
+                    } label: {
+                        setupRows(item)
+                    }
                 }
             }
             .sheet(isPresented: $isPresentedTamagochiView, content: {
