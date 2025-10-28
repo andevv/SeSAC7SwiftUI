@@ -25,6 +25,7 @@ struct CoinView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
+                bannerView()
                 listView()
             }
             .navigationTitle("My Coin")
@@ -36,6 +37,34 @@ struct CoinView: View {
                 Money(name: "도지코인", count: 122, like: false)
             ]
         }
+    }
+    
+    //zstack vs .overlay
+    func bannerView() -> some View {
+        ZStack {
+            Rectangle()
+                .fill(.brown)
+                .overlay {
+                    Circle()
+                        .fill(.white.opacity(0.3))
+                        .scaleEffect(2, anchor: .topTrailing)
+                        .offset(x: -50, y: -50)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+            VStack(alignment: .leading) {
+                Spacer()
+                Text("나의 소비내역")
+                    .font(.callout)
+                Text("123,456,789원")
+                    .font(.title)
+                    .bold()
+            }
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .padding(20)
+        .frame(height: 160)
+        
     }
     
     func listView() -> some View {
