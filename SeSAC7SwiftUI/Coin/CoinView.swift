@@ -25,7 +25,7 @@ struct CoinView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
-                bannerView()
+                horizontalScrollView()
                 listView()
             }
             .navigationTitle("My Coin")
@@ -37,6 +37,21 @@ struct CoinView: View {
                 Money(name: "도지코인", count: 122, like: false)
             ]
         }
+    }
+    
+    //iOS17+ ScrollView
+    func horizontalScrollView() -> some View {
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach(0..<5) { item in
+                    bannerView()
+                        .containerRelativeFrame(.horizontal)
+                }
+            }
+            .scrollTargetLayout()
+        }
+        .scrollTargetBehavior(.viewAligned)
+        .scrollIndicators(.hidden)
     }
     
     //zstack vs .overlay
