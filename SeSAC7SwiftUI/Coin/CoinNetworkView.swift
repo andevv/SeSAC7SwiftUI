@@ -18,7 +18,7 @@ struct CoinNetworkView: View {
             ScrollView(.vertical) {
                 listView()
             }
-            .navigationTitle("My Coin")
+            .navigationTitle("\(UserDefaults.standard.string(forKey: "coin") ?? "없음")")
         }
         .onAppear {
             Task { }
@@ -40,6 +40,9 @@ struct CoinNetworkView: View {
         LazyVStack {
             ForEach(list, id: \.id) { item in
                 CoinNetworkRow(data: item)
+                    .buttonWrapper {
+                        UserDefaults.standard.set(item.koreanName, forKey: "coin")
+                    }
             }
         }
     }
