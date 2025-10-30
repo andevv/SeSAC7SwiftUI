@@ -49,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		FE0E82542EA5C71700911E05 /* SeSAC7SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC7SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE6B75B12EB335B80047F2E1 /* BasicWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BasicWidgetExtension.entitlements; sourceTree = "<group>"; };
 		FE9E58332EB1B69F00A8B23C /* BasicWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BasicWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE9E58352EB1B69F00A8B23C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		FE9E58372EB1B69F00A8B23C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -56,6 +57,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FE6B75B72EB337120047F2E1 /* Exceptions for "SeSAC7SwiftUI" folder in "BasicWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SharedUserDefaults.swift,
+			);
+			target = FE9E58322EB1B69F00A8B23C /* BasicWidgetExtension */;
+		};
 		FE9E58442EB1B6A100A8B23C /* Exceptions for "BasicWidget" folder in "BasicWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -75,6 +83,9 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FE0E82562EA5C71700911E05 /* SeSAC7SwiftUI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				FE6B75B72EB337120047F2E1 /* Exceptions for "SeSAC7SwiftUI" folder in "BasicWidgetExtension" target */,
+			);
 			path = SeSAC7SwiftUI;
 			sourceTree = "<group>";
 		};
@@ -128,6 +139,7 @@
 		FE0E824B2EA5C71700911E05 = {
 			isa = PBXGroup;
 			children = (
+				FE6B75B12EB335B80047F2E1 /* BasicWidgetExtension.entitlements */,
 				FE0E82562EA5C71700911E05 /* SeSAC7SwiftUI */,
 				FE9E58392EB1B69F00A8B23C /* BasicWidget */,
 				FE9E58502EB1B70C00A8B23C /* BasicIntentWidget */,
@@ -455,8 +467,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSAC7SwiftUI/SeSAC7SwiftUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L3KYP426WW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -486,8 +500,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSAC7SwiftUI/SeSAC7SwiftUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L3KYP426WW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -517,8 +533,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BasicWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L3KYP426WW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BasicWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BasicWidget;
@@ -546,8 +564,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BasicWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L3KYP426WW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BasicWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BasicWidget;
